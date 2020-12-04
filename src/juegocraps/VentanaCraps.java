@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
@@ -19,6 +20,7 @@ import javafx.scene.PointLight;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.paint.Color;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -93,11 +95,18 @@ public class VentanaCraps  extends JFrame{
             iniciaFX(fxPanel, this, boton);            
         });        
     }
-    private JButton  boton(String text){
+    private JButton  boton(String text) {
         JButton b = new JButton();        
         b.setText(text);
-        ImageIcon iconNormal = new ImageIcon("src/img/btn-normal.png");        
-        ImageIcon iconOver = new ImageIcon("src/img/btn-over.png");          
+        Image icon1 = null;
+        Image icon2 = null;
+        try {
+            icon1 = ImageIO.read(getClass().getResource("/img/btn-normal.png"));
+            icon2 = ImageIO.read(getClass().getResource("/img/btn-over.png"));
+        } catch (Exception e) {        }
+        
+        ImageIcon iconNormal = new ImageIcon(icon1);        
+        ImageIcon iconOver = new ImageIcon(icon2);          
         b.setIcon(iconNormal);
         b.setRolloverIcon(iconOver);
         b.setBorder(null);
@@ -196,26 +205,31 @@ public class VentanaCraps  extends JFrame{
     public void setResultado(int resultado) {
         this.resultado = resultado;
     }
-    public void finJuego(String accionFin){
-        System.err.println("fin");
+    public void finJuego(String accionFin){        
         UIManager UI = new UIManager();
         UI.put("OptionPane.background",new ColorUIResource(java.awt.Color.white));
         UI.put("Panel.background",new ColorUIResource(java.awt.Color.white));
         JOptionPane optionPane = new JOptionPane();    
         
         ImageIcon icono;
+        Image img=null;
+        String src= "";
         String titulo;
         if(accionFin.equals("win")){        
             optionPane.setMessage("Has ganado la partida");  
             titulo = "Victoria";
-            icono = new ImageIcon("src/img/apl.jpg");
+            
+            src ="/img/apl.jpg";
             
         }else{
             optionPane.setMessage("Has perdido la partida");        
             titulo = "Derrota";
-            icono = new ImageIcon("src/img/facep.png");
+            src = "/img/facep.png";
         }
-        Image img = icono.getImage();
+        try {
+            img =  ImageIO.read(getClass().getResource(src)); 
+        } catch (Exception e) {        }
+                   
         img = img.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
         icono = new ImageIcon(img);
         optionPane.setIcon(icono);
