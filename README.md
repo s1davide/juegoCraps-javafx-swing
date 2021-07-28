@@ -1,4 +1,4 @@
-# juegoCraps-javafx-swing (Parquesoft Homework)
+# craps-game-javafx-swing (Parquesoft Homework)
 
 <br />
 The game begins with a throw called "Starting Shot" and has two phases: start and point. The exit refers to the first throw that is made to start the round and depending on the result the following happens:
