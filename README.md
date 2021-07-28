@@ -1,12 +1,10 @@
-# juegoCraps-javafx-swing
+# juegoCraps-javafx-swing (Parquesoft Homework)
 
 <br />
-El juego comienza con un lanzamiento denominado ”Tiro de salida” y tiene dos fases: salida y punto. 
-La salida se refiere al primer lanzamiento que se hace para dar inicio a la ronda y dependiendo del 
-resultado sucede lo siguiente:
+The game begins with a throw called "Starting Shot" and has two phases: start and point. The exit refers to the first throw that is made to start the round and depending on the result the following happens:
 <br />
-• Si el lanzamiento da como resultado 2, 3 o 12, esto se conoce como “craps” y significa que el jugador perderá automáticamente.
+• If the throw results in a 2, 3 or 12, this is known as "craps" and means that the player will automatically lose.
 <br />
-• Si el lanzamiento da como resultado un 7 o un 11, eso es conocido como un ”natural” y el jugador gana.
+• If the roll results in a 7 or 11, this is known as a "natural" and the player wins.
 <br />
-• Si el lanzamiento da como resultado 4, 5, 6, 8, 9 o 10, eso se conoce como punto y el jugador podrá seguir lanzando los dados con el fin de obtener el valor del punto. Si se logra obtener el valor del punto antes de sacar un 7, entonces la ronda será considerada exitosa y el jugador gana, en caso contrario el jugador pierde.
+• If the roll results in a 4, 5, 6, 8, 9 or 10, this is known as a point and the player may continue to roll the dice in order to obtain the point value. If the point value is obtained before rolling a 7, then the round is considered successful and the player wins, otherwise the player loses. 
